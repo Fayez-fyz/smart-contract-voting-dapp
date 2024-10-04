@@ -1,13 +1,13 @@
 const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 
-module.exports = buildModule("VotingModuleV2", (m) => {
+module.exports = buildModule("Voting", (m) => {
   const candidateNames = m.getParameter("candidateNames", [
     "Fayez",
     "Mannan",
     "Amaan",
     "Prince",
   ]);
-  const durationInMinutes = m.getParameter("durationInMinutes", 90);
+  const durationInMinutes = m.getParameter("durationInMinutes", 1440);
   const voting = m.contract("Voting", [candidateNames, durationInMinutes]);
   return { voting };
 });

@@ -1,13 +1,17 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 
+const { API_URL, PRIVATE_KEY } = process.env;
 /** @type import('hardhat/config').HardhatUserConfig */
+
 module.exports = {
   solidity: "0.8.27",
+  defaultNetwork: "volta",
   networks: {
-    sepolia: {
-      url: process.env.API_URL,
-      accounts: [process.env.PRIVATE_KEY],
+    hardhat: {},
+    volta: {
+      url: API_URL,
+      accounts: [`0x${PRIVATE_KEY}`],
       gas: 210000000,
       gasPrice: 800000000000,
     },
